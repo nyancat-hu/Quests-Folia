@@ -281,6 +281,10 @@ public class BukkitQuestsLoader implements QuestsLoader {
                         String category = config.getString("options.category");
                         Map<String, String> placeholders = new HashMap<>();
                         Map<String, String> progressPlaceholders = new HashMap<>();
+                        String worldname = config.getString("location.world");
+                        double x = config.getDouble("location.x");
+                        double y = config.getDouble("location.y");
+                        double z = config.getDouble("location.z");
 
                         if (category != null && category.equals("")) category = null;
 
@@ -312,6 +316,7 @@ public class BukkitQuestsLoader implements QuestsLoader {
                                 .withCountsTowardsLimit(countsTowardsLimit)
                                 .withAutoStartEnabled(autostart)
                                 .inCategory(category)
+                                .withLocation(worldname,x,y,z)
                                 .build();
 
                         if (category != null) {

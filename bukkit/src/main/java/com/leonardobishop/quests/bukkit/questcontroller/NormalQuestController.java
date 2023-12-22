@@ -359,7 +359,7 @@ public class NormalQuestController implements QuestController {
             String displayName = Chat.legacyStrip(qItemStack.getName());
             qPlayer.getPlayerPreferences().setTrackedQuestId(quest.getId());
             if (player != null) {
-                Bukkit.getPluginManager().callEvent(new PlayerStartTrackQuestEvent(player, qPlayer));
+                Bukkit.getPluginManager().callEvent(new PlayerStartTrackQuestEvent(player, qPlayer,quest.getTargetLocation()));
                 Messages.QUEST_TRACK.send(player, "{quest}", displayName);
             }
         }

@@ -59,6 +59,10 @@ dependencies {
     compileOnly('dev.folia:folia-api:1.20.1-R0.1-SNAPSHOT') {
         exclude(group: 'it.unimi.dsi', module: 'fastutil') // exclude fastutil just to don't use it (for 1.8 support)
     }
+    // znpcsplus
+    compileOnly('com.github.Pyrbu:ZNPCsPlus:271b087586')
+    // znpcsplus
+    compileOnly('lol.pyr:znpcsplus-api:2.0.0-SNAPSHOT')
     // ASkyBlock
     compileOnly('com.wasteofplastic:askyblock:3.0.9.4') { transitive = false }
     // AuthLib
@@ -77,7 +81,7 @@ dependencies {
     compileOnly('net.essentialsx:EssentialsX:2.19.7') { transitive = false }
     // FabledSkyblock
     compileOnly 'com.songoda:skyblock:2.3.30'
-    // IridiumSkyblock TODO fix whenever repo is up
+    // IridiumSkyblock
     //compileOnly 'com.github.Iridium-Development:IridiumSkyblock:master-SNAPSHOT'
     // ItemsAdder
     compileOnly 'com.github.LoneDev6:API-ItemsAdder:3.5.0b'

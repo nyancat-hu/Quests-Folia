@@ -8,4 +8,8 @@ repositories {
 
 dependencies {
     compileOnly 'org.jetbrains:annotations:16.0.2'
+    // Folia
+    compileOnly('dev.folia:folia-api:1.20.1-R0.1-SNAPSHOT') {
+        exclude(group: 'it.unimi.dsi', module: 'fastutil') // exclude fastutil just to don't use it (for 1.8 support)
+    }
 }

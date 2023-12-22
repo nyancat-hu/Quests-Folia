@@ -1,5 +1,7 @@
 package com.leonardobishop.quests.common.quest;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,6 +37,12 @@ public class Quest implements Comparable<Quest> {
     private Map<String, String> placeholders;
     private Map<String, String> progressPlaceholders;
     private String categoryid;
+
+    private Location targetLocation;
+
+    public Location getTargetLocation() {
+        return targetLocation;
+    }
 
     private Quest() { }
 
@@ -320,8 +328,16 @@ public class Quest implements Comparable<Quest> {
         private Map<String, String> progressPlaceholders = Collections.emptyMap();
         private String categoryid = null;
 
+        private Location targetLocation = null;
+
         public Builder(String id) {
             this.id = id;
+        }
+
+        public Builder withLocation(String worldname,double x,double y,double z) {
+            if(worldname.equals("none")) return this;
+            this.targetLocation = new Location(Bukkit.getWorld(worldname),x,y,z);
+            return this;
         }
 
         public Builder withRewards(List<String> rewards) {
@@ -441,7 +457,7 @@ public class Quest implements Comparable<Quest> {
             quest.placeholders = this.placeholders;
             quest.progressPlaceholders = this.progressPlaceholders;
             quest.categoryid = this.categoryid;
-
+            quest.targetLocation = this.targetLocation;
             return quest;
         }
 
